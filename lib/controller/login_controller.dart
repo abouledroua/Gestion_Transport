@@ -22,7 +22,7 @@ class LoginController extends GetxController {
           context: Get.context!,
           builder: (context) => AlertDialog(
                   title: Row(children: [
-                    Icon(Icons.exit_to_app_sharp, color: AppColor.red),
+                    Icon(Icons.exit_to_app_sharp, color: red),
                     const Padding(
                         padding: EdgeInsets.only(left: 8.0),
                         child: Text('Etes-vous sur ?'))
@@ -32,14 +32,12 @@ class LoginController extends GetxController {
                   actions: <Widget>[
                     TextButton(
                         onPressed: () => Get.back(result: false),
-                        child:
-                            Text('Non', style: TextStyle(color: AppColor.red))),
+                        child: Text('Non', style: TextStyle(color: red))),
                     TextButton(
                         onPressed: () {
                           Get.offAllNamed(AppRoute.login);
                         },
-                        child: Text('Oui',
-                            style: TextStyle(color: AppColor.green)))
+                        child: Text('Oui', style: TextStyle(color: green)))
                   ]))) ??
       false;
 
@@ -102,8 +100,7 @@ class LoginController extends GetxController {
               wrongCredent = true;
               debugPrint(msg);
               setValider(false);
-              AppData.mySnackBar(
-                  title: 'Login', message: msg, color: AppColor.red);
+              AppData.mySnackBar(title: 'Login', message: msg, color: red);
             }
             setValider(false);
           } else {
@@ -112,7 +109,7 @@ class LoginController extends GetxController {
             AppData.mySnackBar(
                 title: 'Login',
                 message: "Probleme lors de la connexion avec le serveur !!!",
-                color: AppColor.red);
+                color: red);
             debugPrint("Probleme lors de la connexion avec le serveur !!!");
             setValider(false);
           }
@@ -163,14 +160,14 @@ class LoginController extends GetxController {
     c.sharedPrefs.setString('LastUser', userName);
     c.sharedPrefs.setString('LastPass', password);
     c.sharedPrefs.setBool('LastConnected', true);
-    String privacy = c.sharedPrefs.getString('Privacy${User.idUser}') ?? "";
+    // String privacy = c.sharedPrefs.getString('Privacy${User.idUser}') ?? "";
     userController.text = "";
     passController.text = "";
     valider = false;
-    if (privacy.isEmpty) {
-      debugPrint("Going to Privacy");
-      await Get.toNamed(AppRoute.privacy);
-    }
+    // if (privacy.isEmpty) {
+    //   debugPrint("Going to Privacy");
+    //   await Get.toNamed(AppRoute.privacy);
+    // }
     Get.offAllNamed(AppRoute.homePage);
   }
 
@@ -182,7 +179,7 @@ class LoginController extends GetxController {
   }
 
   initConnect() {
-    AppSizes.setSizeScreen(Get.context);
+    setSizeScreen(Get.context);
     AppData.reparerBDD(showToast: false);
     type = 0;
     //Get.reset();

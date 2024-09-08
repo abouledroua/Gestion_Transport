@@ -5,7 +5,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controller/home_controller.dart';
+import '../../controller/dashboard_controller.dart';
+// import '../../controller/home_controller.dart';
 import '../../core/constant/color.dart';
 import '../../core/constant/sizes.dart';
 
@@ -50,20 +51,18 @@ class MyWidget extends StatelessWidget {
       Container(
           alignment: Alignment.topCenter,
           child: Container(
-              constraints: const BoxConstraints(maxWidth: AppSizes.maxWidth),
+              constraints: const BoxConstraints(maxWidth: maxWidth),
               child: Scaffold(
                   key: key,
                   backgroundColor: backgroundColor ??
-                      (backgroudImage != null
-                          ? Colors.transparent
-                          : AppColor.white),
+                      (backgroudImage != null ? Colors.transparent : white),
                   appBar: title!.isEmpty
                       ? null
                       : AppBar(
                           leadingWidth: 30,
                           automaticallyImplyLeading: false,
                           titleSpacing: 0,
-                          iconTheme: const IconThemeData(color: AppColor.black),
+                          iconTheme: const IconThemeData(color: black),
                           elevation: 0,
                           actions: actions,
                           centerTitle: true,
@@ -72,7 +71,7 @@ class MyWidget extends StatelessWidget {
                           leading: leading ??
                               (Navigator.canPop(Get.context!)
                                   ? IconButton(
-                                      color: leadingIconColor ?? AppColor.black,
+                                      color: leadingIconColor ?? black,
                                       onPressed: () {
                                         Get.back();
                                       },
@@ -83,7 +82,7 @@ class MyWidget extends StatelessWidget {
                                   style: Theme.of(context)
                                       .textTheme
                                       .displayLarge!
-                                      .copyWith(color: AppColor.white)))),
+                                      .copyWith(color: white)))),
                   floatingActionButton: floatingActionButton,
                   drawer: drawer,
                   onDrawerChanged: onDrawerChanged,
@@ -101,7 +100,7 @@ class MyWidget extends StatelessWidget {
                                       Colors.grey.shade200
                                     ])),
                       child: child)))),
-      GetBuilder<HomeController>(
+      GetBuilder<DashBoardController>(
           builder: (controller) => Visibility(
               visible: controller.isVersionDemo && showDemo!,
               child: Transform.rotate(

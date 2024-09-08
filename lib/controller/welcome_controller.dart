@@ -20,7 +20,7 @@ class WelcomeController extends GetxController {
   @override
   void onInit() async {
     WidgetsFlutterBinding.ensureInitialized();
-    AppSizes.setSizeScreen(Get.context);
+    setSizeScreen(Get.context);
     super.onInit();
   }
 }

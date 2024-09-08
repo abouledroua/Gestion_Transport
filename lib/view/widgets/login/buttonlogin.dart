@@ -19,8 +19,7 @@ class ButtonLogin extends StatelessWidget {
           visible: controller.valider,
           replacement: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  foregroundColor: AppColor.white,
-                  backgroundColor: AppColor.red),
+                  foregroundColor: white, backgroundColor: red),
               onPressed: onPressed,
               child: Padding(
                   padding: const EdgeInsets.all(12),
@@ -32,13 +31,13 @@ class ButtonLogin extends StatelessWidget {
           child: Container(
             width: double.infinity,
             padding: const EdgeInsets.all(12),
-            color: AppColor.red,
+            color: red,
             child: Row(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const CircularProgressIndicator(color: AppColor.white),
+                  const CircularProgressIndicator(color: white),
                   const SizedBox(width: 24),
                   FittedBox(
                       child: Text("Connexion en cours ...",

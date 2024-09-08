@@ -13,9 +13,7 @@ class PrivacyController extends GetxController {
     update();
   }
 
-  Future<bool> onWillPop() async {
-    return false;
-  }
+  Future<bool> onWillPop() async => false;
 
   continuer() {
     SettingServices c = Get.find();
@@ -26,7 +24,7 @@ class PrivacyController extends GetxController {
   @override
   void onInit() {
     WidgetsFlutterBinding.ensureInitialized();
-    AppSizes.setSizeScreen(Get.context);
+    setSizeScreen(Get.context);
     super.onInit();
   }
 }

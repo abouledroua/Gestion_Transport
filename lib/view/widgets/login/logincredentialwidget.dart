@@ -42,7 +42,7 @@ class LoginCredentialWidget extends StatelessWidget {
                           style: Theme.of(context)
                               .textTheme
                               .labelMedium!
-                              .copyWith(color: AppColor.red))),
+                              .copyWith(color: red))),
                 if (controller.erreurServeur)
                   Center(
                       child: Text(
@@ -50,7 +50,7 @@ class LoginCredentialWidget extends StatelessWidget {
                           style: Theme.of(context)
                               .textTheme
                               .labelMedium!
-                              .copyWith(color: AppColor.red))),
+                              .copyWith(color: red))),
                 const SizedBox(height: 16),
                 Center(
                     child: ButtonLogin(
@@ -59,8 +59,8 @@ class LoginCredentialWidget extends StatelessWidget {
                             : () {
                                 controller.onValidate();
                               },
-                        backcolor: AppColor.primary,
-                        textcolor: AppColor.white)),
+                        backcolor: primary,
+                        textcolor: white)),
                 const SizedBox(height: 16)
               ])));
 }

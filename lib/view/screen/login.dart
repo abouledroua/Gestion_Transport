@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:blinking_text/blinking_text.dart';
 import 'package:get/get.dart';
 
-import '../../controller/home_controller.dart';
+// import '../../controller/home_controller.dart';
+import '../../controller/dashboard_controller.dart';
 import '../../controller/login_controller.dart';
 import '../../core/constant/color.dart';
 import '../../core/constant/data.dart';
@@ -20,13 +21,13 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    HomeController hControler = Get.find();
+    DashBoardController hControler = Get.find();
     bool keyboardVisible = MediaQuery.of(context).viewInsets.bottom != 0;
     LoginController controller = Get.put(LoginController());
     int hour = TimeOfDay.now().hour;
     return MyWidget(
         showDemo: false,
-        backgroundColor: AppColor.white,
+        backgroundColor: white,
         child: PopScope(
             canPop: false,
             onPopInvokedWithResult: (didPop, result) {
@@ -51,13 +52,13 @@ class _LoginPageState extends State<LoginPage> {
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!
-                                .copyWith(color: AppColor.greyblack))),
+                                .copyWith(color: greyblack))),
                     const LoginCredentialWidget(),
                     if (hControler.isVersionDemo)
                       BlinkText('Version Démo',
                           style: Theme.of(context).textTheme.headlineLarge,
-                          beginColor: AppColor.white,
-                          endColor: AppColor.red)
+                          beginColor: white,
+                          endColor: red)
                   ])),
                   if (!keyboardVisible)
                     Column(
@@ -70,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .titleSmall!
-                                      .copyWith(color: AppColor.greyblack))),
+                                      .copyWith(color: greyblack))),
                           const SizedBox(height: 6)
                         ])
                 ]))));

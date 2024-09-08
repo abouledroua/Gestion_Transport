@@ -14,6 +14,9 @@ import 'package:http/http.dart' as http;
 
 import '../../controller/login_controller.dart';
 // import '../class/active.dart';
+import '../class/analytic_info_model.dart';
+import '../class/discussions_info_model.dart';
+import '../class/referal_info_model.dart';
 import '../class/user.dart';
 import '../services/settingservice.dart';
 import 'color.dart';
@@ -145,10 +148,10 @@ class AppData {
       {required title, required message, required color, textColor}) {
     Get.snackbar(title, message,
         snackPosition: SnackPosition.BOTTOM,
-        maxWidth: AppSizes.widthScreen,
+        maxWidth: widthScreen,
         margin: const EdgeInsets.symmetric(horizontal: 10),
         backgroundColor: color,
-        colorText: textColor ?? AppColor.white);
+        colorText: textColor ?? white);
   }
 
   static String printDateDayOnly(String pdate) {
@@ -311,7 +314,7 @@ class AppData {
             AppData.mySnackBar(
                 title: 'Base de Données',
                 message: "La base de données à été réparer ...",
-                color: AppColor.green);
+                color: green);
           }
         } else {
           if (showToast) {
@@ -319,7 +322,7 @@ class AppData {
                 title: 'Base de Données',
                 message:
                     "Probleme lors de la réparation de la base de données !!!",
-                color: AppColor.red);
+                color: red);
           }
         }
       } else {
@@ -327,7 +330,7 @@ class AppData {
           AppData.mySnackBar(
               title: 'Base de Données',
               message: "Probleme de Connexion avec le serveur 5!!!",
-              color: AppColor.red);
+              color: red);
         }
       }
     }).catchError((error) {
@@ -336,7 +339,7 @@ class AppData {
         AppData.mySnackBar(
             title: 'Base de Données',
             message: "Probleme de Connexion avec le serveur 6!!!",
-            color: AppColor.red);
+            color: red);
       }
     });
   }
@@ -562,7 +565,7 @@ class AppData {
               title: 'Alerte',
               btnOkText: "Oui",
               btnCancelText: "Non",
-              width: AppSizes.widthScreen,
+              width: widthScreen,
               btnCancelOnPress: () {},
               onDismissCallback: (type) {},
               btnOkOnPress: () {
@@ -615,7 +618,7 @@ class AppData {
                       // mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
-                            height: AppSizes.heightScreen / 50,
+                            height: heightScreen / 50,
                             child: Image.asset(image)),
                         const SizedBox(width: 10),
                         Text(text,
@@ -624,7 +627,7 @@ class AppData {
                                 .titleMedium!
                                 .copyWith(
                                     fontWeight: FontWeight.normal,
-                                    color: textColor ?? AppColor.black))
+                                    color: textColor ?? black))
                       ]))));
 
   static _labelDrawer({required String text, required BuildContext context}) =>
@@ -637,7 +640,7 @@ class AppData {
 
   static Drawer myDrawer(BuildContext context, {Color? color}) => Drawer(
       child: Container(
-          color: AppColor.white,
+          color: white,
           padding: const EdgeInsets.only(bottom: 10),
           child: Column(children: [
             const SizedBox(height: 16),
@@ -795,7 +798,7 @@ class AppData {
                     logout();
                   },
                   text: "Déconnecter",
-                  textColor: AppColor.red)
+                  textColor: red)
             ]))
           ])));
 
@@ -831,3 +834,90 @@ class AppData {
     }
   }
 }
+
+List analyticData = [
+  AnalyticInfo(
+    title: "Subscribers",
+    count: 720,
+    svgSrc: "assets/icons/Subscribers.svg",
+    color: primaryColor,
+  ),
+  AnalyticInfo(
+    title: "Post",
+    count: 820,
+    svgSrc: "assets/icons/Post.svg",
+    color: purple,
+  ),
+  AnalyticInfo(
+    title: "Pages",
+    count: 920,
+    svgSrc: "assets/icons/Pages.svg",
+    color: orange,
+  ),
+  AnalyticInfo(
+    title: "Comments",
+    count: 920,
+    svgSrc: "assets/icons/Comments.svg",
+    color: green,
+  ),
+];
+
+List discussionData = [
+  DiscussionInfoModel(
+    imageSrc: "assets/images/photo1.jpg",
+    name: "Lutfhi Chan",
+    date: "Jan 20,2021",
+  ),
+  DiscussionInfoModel(
+    imageSrc: "assets/images/photo2.jpg",
+    name: "Devi Carlos",
+    date: "Jan 25,2021",
+  ),
+  DiscussionInfoModel(
+    imageSrc: "assets/images/photo3.jpg",
+    name: "Danar Comel",
+    date: "Jan 25,2021",
+  ),
+  DiscussionInfoModel(
+    imageSrc: "assets/images/photo4.jpg",
+    name: "Karin Lumina",
+    date: "Jan 25,2021",
+  ),
+  DiscussionInfoModel(
+    imageSrc: "assets/images/photo5.jpg",
+    name: "Fandid Deadan",
+    date: "Jan 25,2021",
+  ),
+  DiscussionInfoModel(
+    imageSrc: "assets/images/photo1.jpg",
+    name: "Lutfhi Chan",
+    date: "Jan 25,2021",
+  ),
+];
+
+List referalData = [
+  ReferalInfoModel(
+    title: "Facebook",
+    count: 234,
+    svgSrc: "assets/icons/Facebook.svg",
+    color: primaryColor,
+  ),
+  ReferalInfoModel(
+    title: "Twitter",
+    count: 234,
+    svgSrc: "assets/icons/Twitter.svg",
+    color: primaryColor,
+  ),
+  ReferalInfoModel(
+    title: "Linkedin",
+    count: 234,
+    svgSrc: "assets/icons/Linkedin.svg",
+    color: primaryColor,
+  ),
+  ReferalInfoModel(
+    title: "Dribble",
+    count: 234,
+    svgSrc: "assets/icons/Dribbble.svg",
+    color: red,
+  )
+];

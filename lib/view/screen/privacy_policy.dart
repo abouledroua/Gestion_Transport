@@ -21,7 +21,7 @@ class PrivacyPolicy extends StatelessWidget {
     double heightPad = 20;
     return MyWidget(
         showDemo: false,
-        backgroundColor: AppColor.white,
+        backgroundColor: white,
         child: PopScope(
             canPop: false,
             onPopInvokedWithResult: (didPop, result) {
@@ -45,7 +45,7 @@ class PrivacyPolicy extends StatelessWidget {
                           child: Text(
                               "Veuillez lire et accepter les termes d'utilisation de l'application ${AppData.privacyAppName}",
                               style: Theme.of(context).textTheme.bodyLarge))),
-                  const Divider(color: AppColor.black),
+                  const Divider(color: black),
                   const PrivacyText(),
                   const Divider(),
                   const SwitchPrivacy(),

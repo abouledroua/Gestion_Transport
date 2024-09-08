@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'core/constant/routes.dart';
+import 'view/screen/dash_board.dart';
+// import 'view/screen/homepage.dart';
 import 'view/screen/login.dart';
 import 'view/screen/privacy_policy.dart';
 
 Map<String, Widget Function(BuildContext)> routes = {
   AppRoute.login: (context) => const LoginPage(),
-  // AppRoute.homePage: (context) => const HomePage(),
+  AppRoute.homePage: (context) => const DashBoardScreen(),
   AppRoute.privacy: (context) => const PrivacyPolicy(),
   // AppRoute.apropos: (context) => const AProposView(),
   // AppRoute.activation: (context) => const FicheActivation(),

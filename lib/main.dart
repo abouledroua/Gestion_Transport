@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-import 'controller/home_controller.dart';
+import 'controller/dashboard_controller.dart';
+// import 'controller/home_controller.dart';
 import 'core/constant/data.dart';
 import 'core/constant/theme.dart';
 import 'core/services/settingservice.dart';
@@ -22,7 +23,7 @@ void main() async {
 }
 
 Future initialService() async {
-  Get.put(HomeController());
+  Get.put(DashBoardController());
   await Get.putAsync(() => SettingServices().init());
 }
 

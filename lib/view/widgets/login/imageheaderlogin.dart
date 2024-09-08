@@ -11,15 +11,15 @@ class ImageHeaderLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox(
-      width: AppSizes.widthScreen / 2,
-      height: AppSizes.heightScreen / 4,
+      width: widthScreen / 2,
+      height: heightScreen / 4,
       child: ClipOval(
           child: Container(
               decoration:
                   const BoxDecoration(shape: BoxShape.circle, boxShadow: [
-                BoxShadow(color: AppColor.grey, blurRadius: 28),
-                BoxShadow(color: AppColor.greyFonce, blurRadius: 18),
-                BoxShadow(color: AppColor.white, blurRadius: 28)
+                BoxShadow(color: grey, blurRadius: 28),
+                BoxShadow(color: greyFonce, blurRadius: 18),
+                BoxShadow(color: white, blurRadius: 28)
               ]),
               child: Image.asset(AppImageAsset.login))));
 }

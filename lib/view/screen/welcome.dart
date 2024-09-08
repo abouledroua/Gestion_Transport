@@ -26,18 +26,17 @@ class _WelcomePageState extends State<WelcomePage> {
 
   @override
   Widget build(BuildContext context) {
-    AppSizes.setSizeScreen(context);
+    setSizeScreen(context);
     SettingServices ss = Get.find();
     return MyWidget(
         showDemo: false,
-        backgroundColor: AppColor.white,
+        backgroundColor: white,
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Container(
-              constraints:
-                  BoxConstraints(maxWidth: (AppSizes.widthScreen / 2) - 20),
+              constraints: BoxConstraints(maxWidth: (widthScreen / 2) - 20),
               padding: const EdgeInsets.all(28.0),
               child: Image.asset(AppImageAsset.logo, fit: BoxFit.contain)),
-          SizedBox(height: AppSizes.heightScreen / 20),
+          SizedBox(height: heightScreen / 20),
           Center(
               child: Text("Gestion Transport",
                   style: Theme.of(context).textTheme.headlineLarge)),
@@ -48,7 +47,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   style: Theme.of(context)
                       .textTheme
                       .labelLarge!
-                      .copyWith(color: AppColor.greyblack))),
+                      .copyWith(color: greyblack))),
         ]));
   }
 }
