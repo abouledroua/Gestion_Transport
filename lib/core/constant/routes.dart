@@ -1,7 +1,6 @@
 class AppRoute {
   static const String login = "/Login";
   static const String privacy = "/Privacy";
-  static const String choixDossier = "/choixDossier";
   static const String homePage = "/HomePage";
   static const String activation = "/Activation";
   static const String apropos = "/Apropos";
@@ -13,9 +12,6 @@ class AppRoute {
   static const String listProduit = "/ListProduit";
   static const String ficheProduit = "/FicheProduit";
   static const String detailsProduit = "/DetailsProduit";
-
-  static const String listDossier = "/ListDossier";
-  static const String ficheDossier = "/FicheDossier";
 
   static const String listFactures = "/ListFacture";
   static const String ficheFacture = "/FicheFactures";

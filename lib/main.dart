@@ -16,16 +16,14 @@ void main() async {
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   }
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]).then((value) => runApp(const MyApp()));
+  SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
+      .then((value) => runApp(const MyApp()));
 }
 
 Future initialService() async {
   Get.put(HomeController());
   await Get.putAsync(() => SettingServices().init());
-  AppData.chargeServerName();
 }
 
 class MyApp extends StatelessWidget {

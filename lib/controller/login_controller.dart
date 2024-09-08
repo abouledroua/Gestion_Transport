@@ -28,7 +28,7 @@ class LoginController extends GetxController {
                         child: Text('Etes-vous sur ?'))
                   ]),
                   content: const Text(
-                      "Voulez-vous vraiment annuler l'authetification dans ce dossier ?"),
+                      "Voulez-vous vraiment annuler l'authentification ?"),
                   actions: <Widget>[
                     TextButton(
                         onPressed: () => Get.back(result: false),
@@ -36,8 +36,7 @@ class LoginController extends GetxController {
                             Text('Non', style: TextStyle(color: AppColor.red))),
                     TextButton(
                         onPressed: () {
-                          AppData.dossier = "";
-                          Get.offAllNamed(AppRoute.listDossier);
+                          Get.offAllNamed(AppRoute.login);
                         },
                         child: Text('Oui',
                             style: TextStyle(color: AppColor.green)))
@@ -82,12 +81,18 @@ class LoginController extends GetxController {
             for (var m in responsebody) {
               createVarUser(
                   idUser: AppData.getInt(m, 'ID_USER'),
-                  achat: AppData.getInt(m, 'ACHAT') == 1,
-                  vente: AppData.getInt(m, 'VENTE') == 1,
-                  tresorerie: AppData.getInt(m, 'TRESORERIE_STATISTIQUE') == 1,
-                  reglement: AppData.getInt(m, 'REGLEMENT') == 1,
-                  prixAchat: AppData.getInt(m, 'PRIX_ACHAT') == 1,
-                  parametre: AppData.getInt(m, 'PARAM') == 1,
+                  affichePrix: AppData.getInt(m, 'AFFICHE_PRIX') == 1,
+                  caisse: AppData.getInt(m, 'CAISSE') == 1,
+                  tresorerie: AppData.getInt(m, 'TRESORERIE') == 1,
+                  reglementClient: AppData.getInt(m, 'REGLEMENT_CLIENT') == 1,
+                  reglementFournisseur:
+                      AppData.getInt(m, 'REGLEMENT_FOURNISSEUR') == 1,
+                  livraison: AppData.getInt(m, 'LIVRAISON') == 1,
+                  retour: AppData.getInt(m, 'RETOUR') == 1,
+                  statistique: AppData.getInt(m, 'STATISTIQUE') == 1,
+                  transport: AppData.getInt(m, 'TRANSPORT') == 1,
+                  transaction: AppData.getInt(m, 'TRANSACTION') == 1,
+                  parametre: AppData.getInt(m, 'PARAMETRE') == 1,
                   password: password,
                   userName: userName);
             }
@@ -126,28 +131,38 @@ class LoginController extends GetxController {
       {required int idUser,
       required String userName,
       required String password,
-      required bool achat,
-      required reglement,
-      required tresorerie,
-      required prixAchat,
-      required parametre,
-      required vente}) async {
+      required bool caisse,
+      required bool tresorerie,
+      required bool livraison,
+      required bool reglementClient,
+      required bool reglementFournisseur,
+      required bool retour,
+      required bool statistique,
+      required bool transport,
+      required bool transaction,
+      required bool parametre,
+      required bool affichePrix}) async {
     User.idUser = idUser;
     User.username = userName;
     User.password = password;
-    User.achat = achat;
-    User.reglement = reglement;
+    User.caisse = caisse;
     User.tresorerie = tresorerie;
-    User.prixAchat = prixAchat;
+    User.livraison = livraison;
     User.parametre = parametre;
-    User.vente = vente;
+    User.reglementClient = reglementClient;
+    User.reglementFournisseur = reglementFournisseur;
+    User.retour = retour;
+    User.statistique = statistique;
+    User.transport = transport;
+    User.affichePrix = affichePrix;
+    User.transaction = transaction;
 
     debugPrint("Its Ok ----- Connected ----------------");
 
     SettingServices c = Get.find();
-    c.sharedPrefs.setString('LastUser-${AppData.dossier}', userName);
-    c.sharedPrefs.setString('LastPass-${AppData.dossier}', password);
-    c.sharedPrefs.setBool('LastConnected-${AppData.dossier}', true);
+    c.sharedPrefs.setString('LastUser', userName);
+    c.sharedPrefs.setString('LastPass', password);
+    c.sharedPrefs.setBool('LastConnected', true);
     String privacy = c.sharedPrefs.getString('Privacy${User.idUser}') ?? "";
     userController.text = "";
     passController.text = "";
@@ -177,12 +192,9 @@ class LoginController extends GetxController {
     wrongCredent = false;
     SettingServices c = Get.find();
     //effacerLastUser();
-    String userPref =
-        c.sharedPrefs.getString('LastUser-${AppData.dossier}') ?? "";
-    String passPref =
-        c.sharedPrefs.getString('LastPass-${AppData.dossier}') ?? "";
-    bool connect =
-        c.sharedPrefs.getBool('LastConnected-${AppData.dossier}') ?? false;
+    String userPref = c.sharedPrefs.getString('LastUser') ?? "";
+    String passPref = c.sharedPrefs.getString('LastPass') ?? "";
+    bool connect = c.sharedPrefs.getBool('LastConnected') ?? false;
     if (userPref.isNotEmpty && connect) {
       userController.text = userPref;
       passController.text = passPref;
@@ -192,9 +204,9 @@ class LoginController extends GetxController {
 
   effacerLastUser() {
     SettingServices c = Get.find();
-    c.sharedPrefs.setString('LastUser-${AppData.dossier}', "");
-    c.sharedPrefs.setString('LastPass-${AppData.dossier}', "");
-    c.sharedPrefs.setBool('LastConnected-${AppData.dossier}', false);
+    c.sharedPrefs.setString('LastUser', "");
+    c.sharedPrefs.setString('LastPass', "");
+    c.sharedPrefs.setBool('LastConnected', false);
   }
 
   @override

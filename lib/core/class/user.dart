@@ -1,10 +1,15 @@
 class User {
   static int idUser = 0;
   static String username = "", password = "";
-  static bool achat = false,
-      reglement = false,
+  static bool transport = false,
+      reglementClient = false,
+      reglementFournisseur = false,
       tresorerie = false,
-      prixAchat = false,
+      livraison = false,
+      caisse = false,
+      retour = false,
+      transaction = false,
+      affichePrix = false,
       parametre = false,
-      vente = false;
+      statistique = false;
 }

@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 
 import 'core/constant/routes.dart';
 import 'view/screen/login.dart';
+import 'view/screen/privacy_policy.dart';
 
 Map<String, Widget Function(BuildContext)> routes = {
   AppRoute.login: (context) => const LoginPage(),
-  // AppRoute.choixDossier: (context) => const ChoixDossier(),
   // AppRoute.homePage: (context) => const HomePage(),
-  // AppRoute.privacy: (context) => const PrivacyPolicy(),
+  AppRoute.privacy: (context) => const PrivacyPolicy(),
   // AppRoute.apropos: (context) => const AProposView(),
   // AppRoute.activation: (context) => const FicheActivation(),
   // AppRoute.ficheDonnee: (context) => const FicheDonnee(),
   // AppRoute.fichePersonne: (context) => const FichePersonne(),
   // AppRoute.ficheProduit: (context) => const FicheProduit(),
-  // AppRoute.ficheDossier: (context) => const FicheDossier(),
   // AppRoute.ficheFacture: (context) => const FicheFacture(),
   // AppRoute.detailsPersonne: (context) => const DetailsPersonneView(),
   // AppRoute.detailsProduit: (context) => const DetailsProduitView(),
@@ -21,7 +20,6 @@ Map<String, Widget Function(BuildContext)> routes = {
   // AppRoute.listPersonne: (context) => const ListPersonne(),
   // AppRoute.listProduit: (context) => const ListProduits(),
   // AppRoute.listFactures: (context) => const ListFactures(),
-  // AppRoute.listDossier: (context) => const ListDossier(),
   // AppRoute.ficheServerName: (context) => const FicheServerName(),
   // AppRoute.connectDossier: (context) => const ConnectDossier()
 };

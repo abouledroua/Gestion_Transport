@@ -71,22 +71,6 @@ class _LoginPageState extends State<LoginPage> {
                                       .textTheme
                                       .titleSmall!
                                       .copyWith(color: AppColor.greyblack))),
-                          const SizedBox(height: 2),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text('Dossier : ${AppData.miniDossier}',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleSmall!
-                                        .copyWith(color: AppColor.greyblack)),
-                                IconButton(
-                                    onPressed: () {
-                                      controller.onWillPop();
-                                    },
-                                    icon: const Icon(Icons
-                                        .keyboard_double_arrow_down_rounded))
-                              ]),
                           const SizedBox(height: 6)
                         ])
                 ]))));
