@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:blinking_text/blinking_text.dart';
 import 'package:get/get.dart';
 
-// import '../../controller/home_controller.dart';
-import '../../controller/dashboard_controller.dart';
+import '../../controller/home_controller.dart';
 import '../../controller/login_controller.dart';
 import '../../core/constant/color.dart';
 import '../../core/constant/data.dart';
@@ -21,11 +20,12 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    DashBoardController hControler = Get.find();
+    HomeController hControler = Get.find();
     bool keyboardVisible = MediaQuery.of(context).viewInsets.bottom != 0;
     LoginController controller = Get.put(LoginController());
     int hour = TimeOfDay.now().hour;
     return MyWidget(
+        limitWidth: true,
         showDemo: false,
         backgroundColor: white,
         child: PopScope(

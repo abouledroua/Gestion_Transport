@@ -5,8 +5,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controller/dashboard_controller.dart';
-// import '../../controller/home_controller.dart';
+import '../../controller/home_controller.dart';
 import '../../core/constant/color.dart';
 import '../../core/constant/sizes.dart';
 
@@ -14,6 +13,7 @@ class MyWidget extends StatelessWidget {
   final SliverAppBar? mysliver;
   final Widget child;
   bool? showDemo;
+  final bool limitWidth;
   final Widget? floatingActionButton;
   String? title;
   final List<Widget>? actions;
@@ -32,6 +32,7 @@ class MyWidget extends StatelessWidget {
       this.appBarColor,
       this.title,
       this.drawer,
+      this.limitWidth = false,
       this.leadingIconColor,
       this.actions,
       this.leading,
@@ -51,7 +52,8 @@ class MyWidget extends StatelessWidget {
       Container(
           alignment: Alignment.topCenter,
           child: Container(
-              constraints: const BoxConstraints(maxWidth: maxWidth),
+              constraints:
+                  limitWidth ? const BoxConstraints(maxWidth: maxWidth) : null,
               child: Scaffold(
                   key: key,
                   backgroundColor: backgroundColor ??
@@ -100,22 +102,26 @@ class MyWidget extends StatelessWidget {
                                       Colors.grey.shade200
                                     ])),
                       child: child)))),
-      GetBuilder<DashBoardController>(
-          builder: (controller) => Visibility(
-              visible: controller.isVersionDemo && showDemo!,
-              child: Transform.rotate(
-                  angle: -pi / 4,
-                  child: SizedBox(
-                      width: double.infinity,
-                      height: double.infinity,
-                      child: FittedBox(
-                          child: Center(
-                              child: Text('Version Démo',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineLarge!
-                                      .copyWith(
-                                          color: Colors.red.shade100))))))))
+      GetBuilder<HomeController>(
+          builder: (controller) => Center(
+                child: Visibility(
+                    visible: controller.isVersionDemo && showDemo!,
+                    child: Transform.rotate(
+                        angle: -pi / 4,
+                        child: Container(
+                            padding: const EdgeInsets.all(20),
+                            width: fullWidth / 2,
+                            height: fullHeight / 2,
+                            child: FittedBox(
+                                child: Center(
+                                    child: Text('Version Démo',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineLarge!
+                                            .copyWith(
+                                                color:
+                                                    Colors.red.shade100))))))),
+              ))
     ]));
   }
 }

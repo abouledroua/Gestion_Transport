@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../core/class/responsive.dart';
 import '../../../core/constant/sizes.dart';
 import 'analytic_cards.dart';
-import 'custom_appbar.dart';
+import '../homepage/custom_appbar.dart';
 import 'discussions.dart';
 import 'top_referals.dart';
 import 'users.dart';

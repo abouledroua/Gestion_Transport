@@ -1,5 +1,6 @@
 class AppImageAsset {
   static const String rootAsset = "assets/images";
+
   static String logo = "$rootAsset/logo.png";
   static String welcome = "$rootAsset/welcome.jpg";
   static String testServer = "$rootAsset/test_server.png";

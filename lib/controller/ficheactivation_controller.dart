@@ -7,8 +7,7 @@ import '../core/constant/color.dart';
 import '../core/constant/data.dart';
 import '../core/constant/sizes.dart';
 import '../core/services/settingservice.dart';
-import 'dashboard_controller.dart';
-// import 'home_controller.dart';
+import 'home_controller.dart';
 
 class FicheActivationController extends GetxController {
   late int idVersion, annee;
@@ -119,7 +118,7 @@ class FicheActivationController extends GetxController {
     } else {
       if (saisieToken) {
         if (txtTokken.text == "AD3#Y60_IG") {
-          DashBoardController controller = Get.find();
+          HomeController controller = Get.find();
           controller.setVersionDemo(false);
           Get.back(result: "success");
         } else {
@@ -201,7 +200,7 @@ class FicheActivationController extends GetxController {
         var responsebody = response.body;
         debugPrint("Activation Response=$responsebody");
         if (responsebody != "0") {
-          DashBoardController controller = Get.find();
+          HomeController controller = Get.find();
           controller.setVersionDemo(false);
           Get.back(result: "success");
         } else {

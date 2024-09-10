@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/class/responsive.dart';
 import '../../core/constant/color.dart';
 import '../widgets/dashBoard/dashboard_content.dart';
-import '../widgets/dashBoard/drawer_menu.dart';
+import '../widgets/homepage/drawer_menu.dart';
 
 class DashBoardScreen extends StatelessWidget {
   const DashBoardScreen({super.key});

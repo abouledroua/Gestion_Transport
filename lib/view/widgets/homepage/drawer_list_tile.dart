@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/dashboard_controller.dart';
+import '../../../controller/home_controller.dart';
 import '../../../core/constant/color.dart';
+import '../../../core/constant/data.dart';
 
 class DrawerListTile extends StatelessWidget {
   const DrawerListTile(
@@ -18,14 +19,21 @@ class DrawerListTile extends StatelessWidget {
   final Color? color;
 
   @override
-  Widget build(BuildContext context) => GetBuilder<DashBoardController>(
+  Widget build(BuildContext context) => GetBuilder<HomeController>(
       builder: (controller) => ListTile(
           onTap: () {
-            controller.setIndex(myIndex);
+            if (myIndex == 9) {
+              AppData.logout();
+            } else {
+              controller.setIndex(newIndex: myIndex);
+            }
           },
           tileColor:
               controller.currentIndex == myIndex ? blue1 : Colors.transparent,
-          leading: Icon(icon, color: color ?? grey),
+          leading: Icon(icon,
+              size: controller.currentIndex == myIndex ? 24 : 20,
+              color:
+                  color ?? (controller.currentIndex == myIndex ? white : grey)),
           title: Text(title,
               style: controller.currentIndex == myIndex
                   ? Theme.of(context)

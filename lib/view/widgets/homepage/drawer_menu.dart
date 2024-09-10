@@ -13,13 +13,14 @@ class DrawerMenu extends StatelessWidget {
           child: ListView(children: [
         Container(
             constraints: const BoxConstraints(maxHeight: 100),
-            padding: const EdgeInsets.all(appPadding),
+            padding: const EdgeInsets.symmetric(horizontal: appPadding),
             child: Image.asset(AppImageAsset.logo)),
         FittedBox(
             child: Padding(
-                padding: const EdgeInsets.all(appPadding),
+                padding: const EdgeInsets.symmetric(horizontal: appPadding),
                 child: Text('Gestion Transport',
                     style: Theme.of(context).textTheme.titleMedium))),
+        const SizedBox(height: appPadding),
         const DrawerListTile(title: 'Acceuil', icon: Icons.home, myIndex: 0),
         const DrawerListTile(
             title: 'Transport', icon: Icons.emoji_transportation, myIndex: 1),

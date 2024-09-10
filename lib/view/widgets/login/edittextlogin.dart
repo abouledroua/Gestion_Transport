@@ -20,6 +20,7 @@ class EditTextLogin extends StatelessWidget {
   Widget build(BuildContext context) => GetBuilder<LoginController>(
       builder: (controller) => TextFormField(
           controller: mycontroller,
+          canRequestFocus: true,
           obscureText: isPassword,
           enabled: !controller.valider,
           readOnly: controller.valider,

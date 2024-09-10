@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:gestion_transport/controller/home_controller.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -168,7 +169,9 @@ class LoginController extends GetxController {
     //   debugPrint("Going to Privacy");
     //   await Get.toNamed(AppRoute.privacy);
     // }
-    Get.offAllNamed(AppRoute.homePage);
+    int index = c.sharedPrefs.getInt('CurrentIndex') ?? 0;
+    HomeController controller = Get.find();
+    controller.setIndex(newIndex: index, firstGo: true);
   }
 
   @override
