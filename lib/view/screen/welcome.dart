@@ -33,7 +33,7 @@ class _WelcomePageState extends State<WelcomePage> {
         backgroundColor: white,
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Container(
-              constraints: BoxConstraints(maxWidth: (widthScreen / 2) - 20),
+              constraints: BoxConstraints(maxWidth: (widthScreen / 3) - 20),
               padding: const EdgeInsets.all(28.0),
               child: Image.asset(AppImageAsset.logo, fit: BoxFit.contain)),
           SizedBox(height: heightScreen / 20),

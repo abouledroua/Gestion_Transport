@@ -17,7 +17,7 @@ class MyScreen extends StatelessWidget {
       child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
         if (Responsive.isDesktop(context)) const Expanded(child: DrawerMenu()),
         Expanded(
-            flex: 5,
+            flex: 7,
             child: SingleChildScrollView(
                 padding: const EdgeInsets.all(appPadding), child: child))
       ]));

@@ -13,14 +13,12 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 import '../../controller/login_controller.dart';
-// import '../class/active.dart';
 import '../class/analytic_info_model.dart';
 import '../class/discussions_info_model.dart';
 import '../class/referal_info_model.dart';
 import '../class/user.dart';
 import '../services/settingservice.dart';
 import 'color.dart';
-import 'image_asset.dart';
 import 'routes.dart';
 import 'sizes.dart';
 
