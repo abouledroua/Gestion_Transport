@@ -354,6 +354,19 @@ class AppData {
     );
   }
 
+  static String formatPhoneNumber(
+          {required String telNumber1, String telNumber2 = ""}) =>
+      (telNumber1.removeAllWhitespace.isEmpty
+          ? ""
+          : "0${AppData.formatMoney(int.parse(telNumber1))}") +
+      (telNumber1.removeAllWhitespace.isNotEmpty &&
+              telNumber2.removeAllWhitespace.isNotEmpty
+          ? "\n"
+          : "") +
+      (telNumber2.removeAllWhitespace.isEmpty
+          ? ""
+          : "0${AppData.formatMoney(int.parse(telNumber2))}");
+
   static String formatMoney(money) => NumberFormat.decimalPattern("uk-UA")
       .format(double.parse((money).toStringAsFixed(2)));
 

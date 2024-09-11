@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gestion_transport/core/class/analytic_info_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../core/class/analytic_info_model.dart';
 import '../../../core/constant/color.dart';
 import '../../../core/constant/sizes.dart';
 

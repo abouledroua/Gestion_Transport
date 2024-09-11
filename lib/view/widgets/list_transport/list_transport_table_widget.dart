@@ -2,46 +2,138 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/listtransport_controller.dart';
-import '../../../core/constant/color.dart';
 
 class ListTransportWidgetTable extends StatelessWidget {
-  const ListTransportWidgetTable({super.key, required this.myData});
-
-  final MyData myData;
+  const ListTransportWidgetTable({super.key});
 
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
-          child: PaginatedDataTable(
-              source: myData,
-              rowsPerPage: 10,
-              sortAscending: false,
-              header: Text('Liste des Transports',
-                  style: Theme.of(context).textTheme.titleLarge,
-                  textAlign: TextAlign.center),
-              sortColumnIndex: 2,
-              actions: [
-            IconButton(
-                onPressed: () {
-                  ListTransportsController controller = Get.find();
-                  controller.getList(showMessage: true);
-                },
-                icon: const Icon(Icons.refresh))
-          ],
-              columns: [
-            const DataColumn(label: Text('N°'), numeric: true),
-            const DataColumn(label: Text('Réf')),
-            DataColumn(
-                label: const Text('Date'), onSort: (columnIndex, ascending) {}),
-            const DataColumn(label: Text('Heure')),
-            const DataColumn(label: Text('Client')),
-            const DataColumn(label: Text('Télephone')),
-            const DataColumn(label: Text('Montant Produit')),
-            const DataColumn(label: Text('Montant Livraison Interne')),
-            const DataColumn(label: Text('Montant Livraison Externe')),
-            const DataColumn(label: Text('Total')),
-            const DataColumn(label: Text('Transporteur Externe')),
-            const DataColumn(label: Text('Etat')),
-            const DataColumn(label: Text('Poste')),
-            const DataColumn(label: Text('Déstination'))
-          ]));
+  Widget build(BuildContext context) => GetBuilder<ListTransportsController>(
+      builder: (controller) => PaginatedDataTable(
+          source: controller.myData,
+          rowsPerPage: 10,
+          sortAscending: controller.sort,
+          onPageChanged: (value) {
+            controller.resetSelectedIndex();
+          },
+          onSelectAll: (value) {},
+          primary: false,
+          sortColumnIndex: controller.sortIndex,
+          showFirstLastButtons: true,
+          columnSpacing: 26,
+          showCheckboxColumn: true,
+          columns: getColumns(context, controller)));
+
+  getColumns(BuildContext context, ListTransportsController controller) => [
+        DataColumn(
+            label: Text('N°',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold)),
+            numeric: true),
+        DataColumn(
+            label: Text('Réf',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold))),
+        DataColumn(
+            label: Text('Date',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold)),
+            onSort: (columnIndex, ascending) {
+              controller.onSortColumn(columnIndex, ascending);
+            }),
+        DataColumn(
+            label: Text('Heure',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold))),
+        DataColumn(
+            label: Text('Client',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold)),
+            onSort: (columnIndex, ascending) {
+              controller.onSortColumn(columnIndex, ascending);
+            }),
+        DataColumn(
+            label: Text('Télephone',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold))),
+        DataColumn(
+            label: Text('Montant Produit',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold)),
+            onSort: (columnIndex, ascending) {
+              controller.onSortColumn(columnIndex, ascending);
+            }),
+        DataColumn(
+            label: Text('Mnt Livr Interne',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold)),
+            onSort: (columnIndex, ascending) {
+              controller.onSortColumn(columnIndex, ascending);
+            },
+            tooltip: "Montant de Livraison Interne"),
+        DataColumn(
+            label: Text('Mnt Livr Externe',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold)),
+            onSort: (columnIndex, ascending) {
+              controller.onSortColumn(columnIndex, ascending);
+            },
+            tooltip: "Montant de Livraison Externe"),
+        DataColumn(
+            label: Text('Total',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold)),
+            onSort: (columnIndex, ascending) {
+              controller.onSortColumn(columnIndex, ascending);
+            }),
+        DataColumn(
+            label: Text('Transporteur Externe',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold)),
+            onSort: (columnIndex, ascending) {
+              controller.onSortColumn(columnIndex, ascending);
+            }),
+        DataColumn(
+            label: Text('Etat',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold))),
+        DataColumn(
+            label: Text('Poste',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold))),
+        DataColumn(
+            label: Text('Déstination',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold)),
+            onSort: (columnIndex, ascending) {
+              controller.onSortColumn(columnIndex, ascending);
+            })
+      ];
 }

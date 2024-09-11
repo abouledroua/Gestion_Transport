@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../core/class/responsive.dart';
 import '../../../core/constant/color.dart';
 import 'profile_info.dart';
-import 'search_field.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({super.key});
@@ -20,7 +19,8 @@ class CustomAppbar extends StatelessWidget {
                 }
               },
               icon: Icon(Icons.menu, color: textColor.withOpacity(0.5))),
-        const Expanded(child: SearchField()),
+        // const Expanded(child: SearchField()),
+        const Spacer(),
         const ProfileInfo()
       ]);
 }

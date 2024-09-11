@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'controller/home_controller.dart';
 import 'core/constant/data.dart';
 import 'core/constant/theme.dart';
+import 'core/mycustomscrollbehavior.dart';
 import 'core/services/settingservice.dart';
 import 'routes.dart';
 import 'view/screen/welcome.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) => GetMaterialApp(
+      scrollBehavior: MyCustomScrollBehavior(), // <== add here
       debugShowCheckedModeBanner: false,
       title: 'Gestion Transport',
       routes: routes,

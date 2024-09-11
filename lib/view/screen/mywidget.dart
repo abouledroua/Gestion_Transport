@@ -102,26 +102,25 @@ class MyWidget extends StatelessWidget {
                                       Colors.grey.shade200
                                     ])),
                       child: child)))),
-      GetBuilder<HomeController>(
-          builder: (controller) => Center(
-                child: Visibility(
-                    visible: controller.isVersionDemo && showDemo!,
-                    child: Transform.rotate(
-                        angle: -pi / 4,
-                        child: Container(
-                            padding: const EdgeInsets.all(20),
-                            width: fullWidth / 2,
-                            height: fullHeight / 2,
-                            child: FittedBox(
-                                child: Center(
-                                    child: Text('Version Démo',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headlineLarge!
-                                            .copyWith(
-                                                color:
-                                                    Colors.red.shade100))))))),
-              ))
+      // GetBuilder<HomeController>(
+      //     builder: (controller) => Center(
+      //         child: Visibility(
+      //             visible: controller.isVersionDemo && showDemo!,
+      //             child: Transform.rotate(
+      //                 angle: -pi / 4,
+      //                 child: Container(
+      //                     padding: const EdgeInsets.all(20),
+      //                     width: fullWidth / 2,
+      //                     height: fullHeight / 2,
+      //                     child: FittedBox(
+      //                         child: Center(
+      //                             child: Text('Version Démo',
+      //                                 style: Theme.of(context)
+      //                                     .textTheme
+      //                                     .headlineLarge!
+      //                                     .copyWith(
+      //                                         color:
+      //                                             Colors.red.shade100)))))))))
     ]));
   }
 }
